@@ -19,8 +19,8 @@ namespace Lab2
         public int lineBottom = 400;
 
         // Переменные для подстановки в формулу Фиттса
-        public int a = 1;
-        public double b = 0.5;
+        public int a = 50;
+        public double b = 150;
         public double D = 1;
         public double W = 1;
 
@@ -203,16 +203,16 @@ namespace Lab2
                     flagStopWatch = false;
                     double timeReaction = Math.Round(_stopWatch.Elapsed.TotalSeconds, 3);
 
-                    D /= 37.936267;
-                    W /= 37.936267;
+                    //D /= 37.936267;
+                    //W /= 37.936267;
 
                     double timeReactionFitts = Math.Round(a + b * Math.Log2(D / W  + 1), 3);
 
-                    textBox1.Text += "Кнопка нажата за " + timeReaction.ToString() + " реальных секунд (" + (countClicksNow + 1).ToString() + ")\r\n";
+                    textBox1.Text += "\r\nКнопка нажата за " + timeReaction.ToString() + " реальных секунд (" + (countClicksNow + 1).ToString() + ")\r\n";
 
                     if (comboBoxModeFixed == 0 || comboBoxModeFixed == 1)
                     {
-                        textBox1.Text += "Кнопка нажата за " + timeReactionFitts.ToString() + " секунд по формуле Фиттса (" + (countClicksNow + 1).ToString() + ")\r\n";
+                        textBox1.Text += "" + timeReactionFitts.ToString() + " у.е. по Фиттсу (" + (countClicksNow + 1).ToString() + ")\r\n";
                         D = 1;
                         W = 1;
                     }
@@ -329,7 +329,7 @@ namespace Lab2
 
                 if (comboBoxModeFixed == 0 || comboBoxModeFixed == 1)
                 {
-                    textBox1.Text += "\r\nСреднее время нажатия кнопки по Фиттсу: " + avgResultFitts + " секунд.";
+                    textBox1.Text += "\r\nСреднее по Фиттсу: " + avgResultFitts + " у.е.";
                 }
             }
             textBox1.Text += "\r\n";
